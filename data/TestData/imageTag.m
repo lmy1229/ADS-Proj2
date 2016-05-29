@@ -27,5 +27,7 @@ switch imagename(1:9)
         tag = 0;
 end
 
+tag = tag - 1;
+
 end
 
