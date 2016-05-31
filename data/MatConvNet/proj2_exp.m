@@ -4,7 +4,7 @@
 %  'expDir', 'data/mnist-bnorm', 'batchNormalization', true);
 
 [net_fc, info_fc] = cnn_proj2(...
-  'expDir', 'data', 'batchNormalization', false);
+  'expDir', 'data/model1', 'batchNormalization', false);
 
 % figure(1) ; clf ;
 % subplot(1,2,1) ;

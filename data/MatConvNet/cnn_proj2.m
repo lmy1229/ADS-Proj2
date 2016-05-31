@@ -3,8 +3,11 @@ function [ net, info ] = cnn_proj2( varargin )
 %   Detailed explanation goes here
 
 
-run(fullfile(fileparts(mfilename('fullpath')),...
-  '..', '..', 'matlab', 'vl_setupnn.m')) ;
+% run(fullfile(fileparts(mfilename('fullpath')),...
+%   '..', '..', 'matlab', 'vl_setupnn.m')) ;
+
+run /Users/MarkLv/Documents/MATLAB/matconvnet-1.0-beta20/matlab/vl_setupnn.m
+
 
 opts.batchNormalization = false ;
 opts.networkType = 'simplenn' ;
@@ -16,7 +19,7 @@ opts.expDir = fullfile(vl_rootnn, 'data', ['mnist-baseline-' sfx]) ;
 [opts, varargin] = vl_argparse(opts, varargin) ;
 
 opts.dataDir = fullfile(vl_rootnn, 'data', 'mnist') ;
-opts.imdbPath = fullfile(opts.expDir, 'imdb.mat');
+opts.imdbPath = fullfile(opts.expDir, '..',  'imdb.mat');
 opts.train = struct() ;
 opts = vl_argparse(opts, varargin) ;
 if ~isfield(opts.train, 'gpus'), opts.train.gpus = []; end;
@@ -28,9 +31,9 @@ if ~isfield(opts.train, 'gpus'), opts.train.gpus = []; end;
 net = cnn_init('batchNormalization', opts.batchNormalization, ...
                      'networkType', opts.networkType) ;
 
-if exist(opts.imdbPath, 'file')
+% if exist(opts.imdbPath, 'file')
   imdb = load(opts.imdbPath) ;
-end
+% end
 
 net.meta.classes.name = arrayfun(@(x)sprintf('%d',x),1:10,'UniformOutput',false) ;
 
