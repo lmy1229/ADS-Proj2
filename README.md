@@ -8,6 +8,9 @@
 	* color images
 * improve performance
 	* adjust net structure
+* implement Feed-Forward-Network
+	* [input, hidden, output] model(✔)
+	* [input, hiddens, output] model
 	
 ##Current CNN Structure
 
@@ -44,3 +47,11 @@ net.layers{end+1} = struct('type', 'conv', ...
                            'pad', 0) ;
 net.layers{end+1} = struct('type', 'softmaxloss') ;
 ```
+
+##Current FFN structure
+* Input
+	* 512D GIST Feature
+* Hidden layers
+	* [100]
+* Output
+	* 10D classification
