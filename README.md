@@ -55,3 +55,6 @@ net.layers{end+1} = struct('type', 'softmaxloss') ;
 	* [100]
 * Output
 	* 10D classification
+	
+###2016.6.5
+* prepare code for final submission

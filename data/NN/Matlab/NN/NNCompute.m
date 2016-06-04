@@ -8,8 +8,8 @@ load([dir 'data']);
 input_dim = 512;
 hidden_dim = 100;
 output_dim = 10;
-maxiter = 200;
-lambda = 1;
+maxiter = 1000;
+lambda = 0;
 
 param1 = randInitializeWeights(input_dim, hidden_dim);
 param2 = randInitializeWeights(hidden_dim, output_dim);
@@ -31,9 +31,11 @@ Theta2 = reshape(nnparams((1 + (hidden_dim * (input_dim + 1))):end), ...
 
 
 p_train = predict(Theta1, Theta2, X_train, dir, '-train');
+% p_train = predict(Theta1, Theta2, X_train);
 fprintf('train set : %d / %d / %f\n', sum((p_train - y_train) == 0), length(p_train), sum((p_train - y_train) == 0)/ length(p_train));
 
 p_test = predict(Theta1, Theta2, X_test, dir, '-test');
+% p_test = predict(Theta1, Theta2, X_test);
 fprintf('test set : %d / %d / %f\n', sum((p_test - y_test) == 0), length(p_test), sum((p_test - y_test) == 0)/ length(p_test));
 
-save([dir 'params'], 'Theta1', 'Theta2');
+% save([dir 'params'], 'Theta1', 'Theta2');
